@@ -1,33 +1,27 @@
 # Nimbus ☁
 
-#### 1. 프로젝트 목적
+### 1. 프로젝트 목적 및 기획 의도
 - 리액트 실력 유지 및 포트폴리오 활용
 - API 연동 및 UI/UX 경험 강화
 
-#### 2. 주요 기능 및 페이지 구성
-- 메인 페이지
-  - 도시 이름 검색 (입력 + 엔터; 검색 버튼 클릭)
-  - 현재 위치 기반 날씨 위젯 (Geolocation API + OpenWeatherMap API)
-  - 심플한 디자인 (검색 중심)
-  - Skeleton UI 적용 (데이터 불러오기 전 상태)
-  - 에러 메시지 UI 적용 (검색 실패시 예외처리)
-  - 헤더: 다크모드 토글 기능 (로컬스토리지 저장)
+### [2. 주요 기능 및 페이지 구성](https://github.com/hjinn0813/nimbus/wiki/2025%E2%80%9005%E2%80%9017)
 
-- 상세 페이지
-  - 페이지 제목에 도시 이름 동적 출력
-  - 현재 날씨 정보: 날씨 상태(맑음,흐림 등), 현재 온도, 체감 온도, 습도, 풍속
-  - 날씨 아이콘 (OpenWeather API 제공): 현재 날씨에 따라 변경됨
-  - 5일 예보: 버튼 클릭 시 아코디언처럼 펼쳐지는 구조
-  - Skeleton UI 적용 (로딩 상태 고려)
+### 3. 사용 기술 스택
 
-- 404 페이지: 잘못된 경로 접근 시 에러 처리
+| 스택/패키지  | 용도  |
+| --- | --- |
+|![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) ![vite](https://img.shields.io/badge/vite-646CFF?style=flat&logo=vite&logoColor=white)| 프로젝트 생성 |
+| ![ReactQuery](https://img.shields.io/badge/React_Query-FF4154?style=flat&logo=reactquery&logoColor=white) | API 데이터 캐싱, 상태 관리  |
+| ![axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white) | API 통신  |
+| ![zustand](https://img.shields.io/badge/Zustand-433E38?style=flat&logo=Zustand&logoColor=white) | 전역 상태 관리  |
+| ![tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=TailwindCSS&logoColor=white) | 빠른 UI 스타일링  |
+| `react-router-dom` | 라우팅 (메인 페이지 ↔ 상세 페이지) |
+| `react-hot-toast` | 메인 페이지 - 토스트 알림 |
+| `react-icons`  | 메인+상세 페이지 - 아이콘  |
+| `date-fns`  | 상세 페이지 - 날짜 포맷팅 및 비교 (오늘 날짜, 5일치 예보용) |
+| `react-loading-skeleton` | 상세 페이지 - 스켈레톤 UI |
+| `OpenWeatherMap API` | 날씨 데이터 출력 |
+| `Geolocation API` | 현재 위치 받아오기 |
+| ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white) | 배포 |
 
-#### 3. 사용 기술 스택
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![vite](https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white)
-![zustand](https://img.shields.io/badge/Zustand-433E38?style=for-the-badge&logo=Zustand&logoColor=white)
-![ReactQuery](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white)
-![axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
-- OpenWeatherMap API (날씨 데이터)
-- Geolocation API (현재 위치)
+### [4. 개발 기록 아카이빙](https://github.com/hjinn0813/nimbus/wiki)
