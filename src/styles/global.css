@@ -14,7 +14,7 @@ html { transition: background-color 0.3s ease; }
 
 body {
   font-family: 'Pretendard', sans-serif;
-  @apply bg-white text-black;
+  @apply bg-slate-100 text-gray-900;
 }
 
-body.dark { @apply bg-gray-900 text-white; }
+body.dark { @apply bg-gray-900 text-slate-100; }

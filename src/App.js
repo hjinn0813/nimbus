@@ -8,9 +8,9 @@ import './styles/global.css';
 
 function App() {
   return (
-    <div className="container">
+    <div id='container'>
       <Header />
-      <div className='wrap'>
+      <div id='wrap'>
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/detail' element={<Detail />} />
