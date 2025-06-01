@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'Pretendard';
   src: url('../../public/fonts/PretendardStdVariable.woff2') format('woff2-variations');
@@ -6,7 +10,11 @@
   font-display: swap;
 }
 
-/* optional global reset */
+html { transition: background-color 0.3s ease; }
+
 body {
   font-family: 'Pretendard', sans-serif;
+  @apply bg-white text-black;
 }
+
+body.dark { @apply bg-gray-900 text-white; }

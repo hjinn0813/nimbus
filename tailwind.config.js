@@ -3,6 +3,7 @@ module.exports = {
     "./public/index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: 'class', // 다크모드 설정!
   theme: {
     extend: {
       fontFamily: {
