@@ -10,7 +10,7 @@
 
 | 스택/패키지  | 용도  |
 | --- | --- |
-|![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) ![vite](https://img.shields.io/badge/vite-646CFF?style=flat&logo=vite&logoColor=white)| 프로젝트 생성 |
+|![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) | 프로젝트 생성 |
 | ![ReactQuery](https://img.shields.io/badge/React_Query-FF4154?style=flat&logo=reactquery&logoColor=white) | API 데이터 캐싱, 상태 관리  |
 | ![axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white) | API 통신  |
 | ![zustand](https://img.shields.io/badge/Zustand-433E38?style=flat&logo=Zustand&logoColor=white) | 전역 상태 관리  |
