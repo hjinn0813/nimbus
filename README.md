@@ -4,7 +4,7 @@
 - 리액트 실력 유지 및 포트폴리오 활용
 - API 연동 및 UI/UX 경험 강화
 
-### [2. 주요 기능 및 페이지 구성]()
+### [2. 주요 기능 및 페이지 구성](https://github.com/hjinn0813/nimbus/wiki/Development-Log)
 
 ### 3. 사용 기술 스택
 
@@ -24,4 +24,4 @@
 | `Geolocation API` | 현재 위치 받아오기 |
 | ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white) | 배포 |
 
-### [4. 개발 기록 아카이빙]()
+### [4. 개발 기록 아카이빙](https://github.com/hjinn0813/nimbus/wiki/Development-Log)
