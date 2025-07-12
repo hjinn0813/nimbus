@@ -10,7 +10,7 @@ function App() {
   return (
     <div id='container' className='flex flex-col min-h-screen'>
       <Header />
-      <div id='wrap' className='flex-grow flex items-center justify-center'>
+      <div id='wrap' className='flex-grow flex flex-col items-center justify-center'>
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/detail' element={<Detail />} />
