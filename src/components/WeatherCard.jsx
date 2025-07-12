@@ -8,8 +8,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function WeatherCard({city, coords}) {
   const fetchWeather = async() => {
-    console.log(process.env.REACT_APP_WEATHER_KEY);
-
     // 현재 위치 기반
     if (coords) {
       const { lat, lon } = coords
@@ -44,10 +42,11 @@ export default function WeatherCard({city, coords}) {
   const weather = data.data
 
   return (
-    <div className="p-4 rounded-lg shadow bg-white dark:bg-gray-800">
-      <h2>{weather.name}</h2>
-      <p>{weather.weather[0].description}</p>
-      <p>{Math.round(weather.main.temp - 273.15)}°C</p>
+    <div className="mt-10 w-[70%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
+      <div className='text-xl'>{weather.name}</div>
+      <div className='text-2xl'>{weather.weather[0].description}</div>
+      <div className='text-4xl'>{Math.round(weather.main.temp - 273.15)}°C</div>
     </div>
+    // 아이콘 추가 필요, 스타일링 보완 필요 - 250712
   )
 }
