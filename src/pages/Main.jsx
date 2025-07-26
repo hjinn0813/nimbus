@@ -25,7 +25,7 @@ export default function Main() {
   }, [])
 
   return (
-    <>
+    <div className='flex flex-col min-h-screen items-center justify-center'>
       <div className='font-semibold text-4xl mb-10'>Nimbus</div>
       <SearchBar />
       {coords 
@@ -33,6 +33,6 @@ export default function Main() {
             onClick={(cityName)=> navigate(`detail/${encodeURIComponent(cityName)}`)}
           />
         : <p>Loading location...</p>}
-    </>
+    </div>
   )
 }
