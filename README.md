@@ -13,7 +13,6 @@
 |![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) | 프로젝트 생성 |
 | ![ReactQuery](https://img.shields.io/badge/React_Query-FF4154?style=flat&logo=reactquery&logoColor=white) | API 데이터 캐싱, 상태 관리  |
 | ![axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white) | API 통신  |
-| ![zustand](https://img.shields.io/badge/Zustand-433E38?style=flat&logo=Zustand&logoColor=white) | 전역 상태 관리  |
 | ![tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=TailwindCSS&logoColor=white) | 빠른 UI 스타일링  |
 | `react-router-dom` | 라우팅 (메인 페이지 ↔ 상세 페이지) |
 | `react-hot-toast` | 메인 페이지 - 토스트 알림 |
