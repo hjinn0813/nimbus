@@ -19,7 +19,6 @@ export default function Header() {
   return (
     <header className='border-b-2 border-main_color shadow-xl flex flex-row items-center justify-between p-4'>
       <pre className='font-medium'>{currentTime}</pre>
-      <div className='font-semibold text-2xl'>Nimbus</div>
       <DarkMode />
     </header>
   )

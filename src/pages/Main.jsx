@@ -1,11 +1,13 @@
 // main page
 
-import React, { useEffect, useState }  from 'react'
+import React, { useEffect, useState }  from 'react';
+import { useNavigate } from 'react-router-dom';
 import WeatherCard from '../components/WeatherCard';
 import SearchBar from '../components/SearchBar';
 
 export default function Main() {
   const [coords, setCoords] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -23,8 +25,13 @@ export default function Main() {
 
   return (
     <>
+      <div className='font-semibold text-4xl mb-10'>Nimbus</div>
       <SearchBar />
-      {coords ? <WeatherCard coords={coords} /> : <p>Loading location...</p>}
+      {coords 
+        ? <WeatherCard coords={coords} 
+            onClick={(cityName)=> navigate(`detail/${encodeURIComponent(cityName)}`)}
+          />
+        : <p>Loading location...</p>}
     </>
   )
 }
