@@ -12,12 +12,14 @@ export default function WeatherCard({ city, coords, onClick }) {
     // 현재 위치 기반
     if (coords) {
       const { lat, lon } = coords
-      return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
+      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
+      return res;
     }
 
     // 검색한 도시 기반
     if (city) {
-      return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
+      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
+      return res;
     }
 
     throw new Error('No location provided')
@@ -40,15 +42,22 @@ export default function WeatherCard({ city, coords, onClick }) {
 
   if (error) return <p>에러 발생 🥲</p>
 
-  const weather = data.data
+  // 아이콘 추출
+  const weather = data.data;
+  const iconCode = weather.weather[0].icon;
+  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
   return (
-    <div className="mt-10 w-[70%] p-4 rounded-lg shadow bg-white dark:bg-gray-800 cursor-pointer"
+    <div className="flex flex-col mt-10 w-[80%] px-5 py-6 rounded-lg shadow bg-white dark:bg-gray-800 cursor-pointer"
       onClick={() => onClick?.(weather.name)}>
       <div className='text-xl'>{weather.name}</div>
-      <div className='text-2xl'>{weather.weather[0].description}</div>
-      <div className='text-4xl'>{Math.round(weather.main.temp - 273.15)}°C</div>
+      <div className='flex flex-row items-end justify-between'>
+        <div className='my-6'>
+          <div className='text-2xl'>{weather.weather[0].description}</div>
+          <div className='text-6xl mt-2'>{Math.round(weather.main.temp - 273.15)}°C</div>
+        </div>
+        <img className='w-[150px] h-[150px]' src={iconUrl} alt={weather.weather[0].description} />
+      </div>
     </div>
-    // 아이콘 추가 필요, 스타일링 보완 필요 - 250712
   )
 }
