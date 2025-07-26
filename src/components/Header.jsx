@@ -2,11 +2,13 @@
 
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DarkMode from './DarkMode';
-import {formatCurrentTime} from '../utils/formatDate';
+import { formatCurrentTime } from '../utils/formatDate';
 
 export default function Header() {
   const [currentTime, setCurrentTime] = useState(formatCurrentTime());
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,6 +21,7 @@ export default function Header() {
   return (
     <header className='border-b-2 border-main_color shadow-xl flex flex-row items-center justify-between p-4'>
       <pre className='font-medium'>{currentTime}</pre>
+      <div className='font-semibold text-3xl cursor-pointer' onClick={() => navigate('/')}>Nimbus</div>
       <DarkMode />
     </header>
   )
