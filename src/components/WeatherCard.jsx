@@ -1,22 +1,23 @@
 // weather card
 
 import React from 'react'
+import { DEFAULT_LANG } from '../constants/default'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export default function WeatherCard({city, coords}) {
+export default function WeatherCard({ city, coords, onClick }) {
   const fetchWeather = async() => {
     // 현재 위치 기반
     if (coords) {
       const { lat, lon } = coords
-      return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
+      return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
     }
 
     // 검색한 도시 기반
     if (city) {
-      return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
+      return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
     }
 
     throw new Error('No location provided')
@@ -42,7 +43,8 @@ export default function WeatherCard({city, coords}) {
   const weather = data.data
 
   return (
-    <div className="mt-10 w-[70%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
+    <div className="mt-10 w-[70%] p-4 rounded-lg shadow bg-white dark:bg-gray-800 cursor-pointer"
+      onClick={() => onClick?.(weather.name)}>
       <div className='text-xl'>{weather.name}</div>
       <div className='text-2xl'>{weather.weather[0].description}</div>
       <div className='text-4xl'>{Math.round(weather.main.temp - 273.15)}°C</div>

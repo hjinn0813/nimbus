@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState }  from 'react';
 import { useNavigate } from 'react-router-dom';
+import { DEFAULT_COORDS } from '../constants/default';
 import WeatherCard from '../components/WeatherCard';
 import SearchBar from '../components/SearchBar';
 
@@ -18,7 +19,7 @@ export default function Main() {
       (err) => {
         console.error(err)
         // 위치 권한 거부 시 기본값 서울
-        setCoords({ lat: 37.5665, lon: 126.9780 })
+        setCoords({ DEFAULT_COORDS })
       }
     )
   }, [])
