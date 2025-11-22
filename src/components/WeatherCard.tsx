@@ -27,7 +27,7 @@ export default function WeatherCard({ city, coords, onClick }: WeatherCardProps)
   if (!data) return null
 
   // 아이콘 추출
-  const weather = data.data;
+  const weather = data;
   const iconCode = weather.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
