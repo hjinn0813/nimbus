@@ -45,7 +45,7 @@ export default function ForecastSection({ city }: ForecastProps) {
   }
 
   return (
-    <div className="my-10 w-[100%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
+    <div className="mt-8 mb-16 w-[100%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
       <h2 className="text-2xl font-semibold mb-4">{city} 5일 예보</h2>
 
       {Object.entries(forecastByDate).map(([date, forecasts]) => (
@@ -66,7 +66,7 @@ export default function ForecastSection({ city }: ForecastProps) {
 
           {/* 카드 영역 */}
           {openDates.includes(date) && (
-            <div className="flex gap-4 overflow-x-auto py-2">
+            <div className="flex gap-4 overflow-x-auto p-2">
               {forecasts.map(f => {
                 const iconUrl = `https://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`
                 return (
@@ -78,7 +78,7 @@ export default function ForecastSection({ city }: ForecastProps) {
                       <span className="text-sm font-medium mt-2">{f.dt_txt.split(' ')[1].slice(0,5)}</span>
                       <img src={iconUrl} alt={f.weather[0].description} className="w-16 h-16"/>
                       <span className="text-2xl">{Math.round(f.main.temp - 273.15)}°C</span>
-                      <span className="text-md text-center">{f.weather[0].description}</span>
+                      <span className="text-md text-center mt-1">{f.weather[0].description}</span>
                     </div>
 
                     <div className='mt-4 mb-3 flex flex-col'>
