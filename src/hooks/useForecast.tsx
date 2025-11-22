@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { DEFAULT_LANG } from '../constants/default';
 
-interface ForecastItem {
+export interface ForecastItem {
   dt: number;
   dt_txt: string;
   main: {
@@ -14,8 +14,23 @@ interface ForecastItem {
     temp_max: number;
     humidity: number;
   };
-  weather: { id: number; main: string; description: string; icon: string }[];
-  wind: { speed: number; deg: number };
+  weather: { 
+    id: number; 
+    main: string; 
+    description: string; 
+    icon: string; 
+  }[];
+  wind: { 
+    speed: number; 
+    deg: number; 
+  };
+  pop?: number; // 강수 확률 (0~1)
+  rain?: {
+    '3h'?: number; // 지난 3시간 강수량(mm)
+  };
+  snow?: {
+    '3h'?: number; // 지난 3시간 적설량(mm)
+  };
 }
 
 export default function useForecast(city: string){

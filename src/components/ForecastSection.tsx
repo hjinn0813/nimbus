@@ -1,16 +1,19 @@
 // 5일 예보
 
-import React from 'react'
+import { useState } from 'react'
 import useForecast from '../hooks/useForecast'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { format } from 'date-fns'
+import { ko } from 'date-fns/locale'
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 interface ForecastProps {
   city?: string
 }
 
 export default function ForecastSection({ city }: ForecastProps) {
+  const [openDates, setOpenDates] = useState<string[]>([])
   const { data, isLoading, error } = useForecast(city)
 
   if (isLoading){
@@ -34,28 +37,62 @@ export default function ForecastSection({ city }: ForecastProps) {
     forecastByDate[date].push(item);
   });
 
+  // 아코디언 토글
+  const toggleDate = (date: string) => {
+    setOpenDates(prev => 
+      prev.includes(date) ? prev.filter(d => d !== date) : [...prev, date]
+    )
+  }
+
   return (
-    <div className="mt-10 w-[70%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
-      <h2 className="text-2xl mb-4">5일 예보</h2>
+    <div className="my-10 w-[100%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
+      <h2 className="text-2xl font-semibold mb-4">{city} 5일 예보</h2>
 
       {Object.entries(forecastByDate).map(([date, forecasts]) => (
-        <div key={date} className="mb-6">
-          <h3 className="text-xl font-semibold mb-2">
-            {format(new Date(date), 'yyyy-MM-dd (EEE)')}
-          </h3>
-          <div className="flex gap-4 overflow-x-auto">
-            {forecasts.map(f => {
-              const iconUrl = `https://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`;
-              return (
-                <div key={f.dt} className="flex flex-col items-center bg-gray-100 dark:bg-gray-700 rounded-lg p-2 min-w-[80px]">
-                  <span className="text-sm">{f.dt_txt.split(' ')[1].slice(0, 5)}</span>
-                  <img src={iconUrl} alt={f.weather[0].description} className="w-12 h-12"/>
-                  <span className="text-sm">{Math.round(f.main.temp - 273.15)}°C</span>
-                  <span className="text-xs">{f.weather[0].description}</span>
-                </div>
-              );
-            })}
+        <div key={date} className="py-3 border-b border-gray-300 dark:border-gray-600">
+          {/* 날짜 헤더 */}
+          <div 
+            className="flex justify-between items-center cursor-pointer p-2"
+            onClick={() => toggleDate(date)}
+          >
+            <h3 className="text-xl font-semibold">
+              {format(new Date(date), 'yyyy-MM-dd (EEE)', { locale: ko })}
+            </h3>
+            <span>{openDates.includes(date) ? 
+              <IoIosArrowUp className='w-5 h-5' /> : 
+              <IoIosArrowDown className='w-5 h-5'/>}
+            </span>
           </div>
+
+          {/* 카드 영역 */}
+          {openDates.includes(date) && (
+            <div className="flex gap-4 overflow-x-auto py-2">
+              {forecasts.map(f => {
+                const iconUrl = `https://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`
+                return (
+                  <div 
+                    key={f.dt} 
+                    className="h-full flex flex-col items-center border border-slate-300 dark:border-gray-900 dark:bg-gray-900 rounded-lg p-2 min-w-[140px] min-h-[320px]"
+                  >
+                    <div className='flex flex-col items-center flex-1'>
+                      <span className="text-sm font-medium mt-2">{f.dt_txt.split(' ')[1].slice(0,5)}</span>
+                      <img src={iconUrl} alt={f.weather[0].description} className="w-16 h-16"/>
+                      <span className="text-2xl">{Math.round(f.main.temp - 273.15)}°C</span>
+                      <span className="text-md text-center">{f.weather[0].description}</span>
+                    </div>
+
+                    <div className='mt-4 mb-3 flex flex-col'>
+                      <span className="text-sm">체감온도: {Math.round(f.main.feels_like - 273.15)}°C</span>
+                      <span className="text-sm">습도: {f.main.humidity}%</span>
+                      <span className="text-sm">강수확률: {Math.round((f.pop || 0)*100)}%</span>
+                      <span className="text-sm">강수량: {f.rain?.['3h'] ?? 0} mm</span>
+                      <span className="text-sm">적설량: {f.snow?.['3h'] ?? 0} mm</span>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </div>
       ))}
     </div>
