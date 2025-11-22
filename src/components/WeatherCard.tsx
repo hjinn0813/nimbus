@@ -1,34 +1,17 @@
 // weather card
 
-import React from 'react'
-import { DEFAULT_LANG } from '../constants/default'
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
+import useWeather from '../hooks/useWeather'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export default function WeatherCard({ city, coords, onClick }) {
-  const fetchWeather = async() => {
-    // 현재 위치 기반
-    if (coords) {
-      const { lat, lon } = coords
-      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
-      return res;
-    }
+interface WeatherCardProps {
+  city?: string;
+  coords?: { lat: number; lon: number };
+  onClick?: (cityName: string) => void;
+}
 
-    // 검색한 도시 기반
-    if (city) {
-      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`)
-      return res;
-    }
-
-    throw new Error('No location provided')
-  }
-
-  const {data, isLoading, error} = useQuery({
-    queryKey: ['weather', city || coords],
-    queryFn: () => fetchWeather(city || coords),
-  })
+export default function WeatherCard({ city, coords, onClick }: WeatherCardProps) {
+  const { data, isLoading, error } = useWeather({ coords, city });
 
   if (isLoading){
     return (
@@ -41,6 +24,7 @@ export default function WeatherCard({ city, coords, onClick }) {
   }
 
   if (error) return <p>에러 발생 🥲</p>
+  if (!data) return null
 
   // 아이콘 추출
   const weather = data.data;

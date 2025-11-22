@@ -6,7 +6,7 @@ import Detail from './pages/Detail';
 import NotFound from './pages/NotFound';
 import './styles/global.css';
 
-function App() {
+export default function App() {
   return (
     <div id='container' className='flex flex-col min-h-screen'>
       <Header />
@@ -21,5 +21,3 @@ function App() {
     </div>
   )
 }
-
-export default App
