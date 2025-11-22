@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { RECOMMEND_CITIES } from '../constants/cities';
 import { IoSearch } from "react-icons/io5";
 
 export default function SearchBar() {
@@ -20,10 +21,6 @@ export default function SearchBar() {
     if (e.key === 'Enter') handleSearch()
   }
 
-  /* 추천도시 하드코딩 */
-  const recommendCity = ['Seoul', 'New York', 'Tokyo', 'Beijing', 'London', 'Berlin'];
-
-
   return (
     <div className='w-[80%]'>
       <div className='relative w-full flex flex-row items-center'>
@@ -38,12 +35,13 @@ export default function SearchBar() {
       </div>
 
       <div className='mt-3 mx-3 flex flex-wrap gap-2'>
-        {recommendCity.map(city => (
+        {RECOMMEND_CITIES.map(city => (
           <button key={city} 
             onClick={()=> navigate(`/detail/${encodeURIComponent(city)}`)}
             className='px-3 py-1 rounded-full text-sm bg-sub_color text-white hover:bg-sub_color/80'>
               {city}
-            </button>))}
+          </button>
+        ))}
       </div>
     </div>
 
