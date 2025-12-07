@@ -27,4 +27,52 @@
 
 ### 5. 디렉토리 구조
 ```
+📦nimbus
+ ┣ 📂public
+ ┃ ┣ 📂favicon
+ ┃ ┃ ┣ 📜android-chrome-192x192.png
+ ┃ ┃ ┣ 📜android-chrome-512x512.png
+ ┃ ┃ ┣ 📜apple-touch-icon.png
+ ┃ ┃ ┣ 📜favicon-16x16.png
+ ┃ ┃ ┣ 📜favicon-32x32.png
+ ┃ ┃ ┗ 📜favicon.ico
+ ┃ ┣ 📂fonts
+ ┃ ┃ ┗ 📜PretendardStdVariable.woff2
+ ┃ ┗ 📜index.html
+ ┣ 📂src
+ ┃ ┣ 📂assets
+ ┃ ┃ ┗ 📜crying-face.png
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📜DarkMode.tsx
+ ┃ ┃ ┣ 📜Footer.tsx
+ ┃ ┃ ┣ 📜ForecastSection.tsx
+ ┃ ┃ ┣ 📜Header.tsx
+ ┃ ┃ ┣ 📜SearchBar.tsx
+ ┃ ┃ ┗ 📜WeatherCard.tsx
+ ┃ ┣ 📂constants
+ ┃ ┃ ┣ 📜cities.ts
+ ┃ ┃ ┗ 📜default.ts
+ ┃ ┣ 📂hooks
+ ┃ ┃ ┣ 📜useForecast.tsx
+ ┃ ┃ ┗ 📜useWeather.tsx
+ ┃ ┣ 📂pages
+ ┃ ┃ ┣ 📜Detail.tsx
+ ┃ ┃ ┣ 📜Main.tsx
+ ┃ ┃ ┗ 📜NotFound.tsx
+ ┃ ┣ 📂styles
+ ┃ ┃ ┗ 📜global.css
+ ┃ ┣ 📂utils
+ ┃ ┃ ┗ 📜formatDate.ts
+ ┃ ┣ 📜App.tsx
+ ┃ ┣ 📜images.d.ts
+ ┃ ┣ 📜index.tsx
+ ┃ ┗ 📜queryClient.tsx
+ ┣ 📜.env
+ ┣ 📜.gitignore
+ ┣ 📜README.md
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┣ 📜postcss.config.js
+ ┣ 📜tailwind.config.js
+ ┗ 📜tsconfig.json
 ```
