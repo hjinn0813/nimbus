@@ -13,7 +13,7 @@ interface ForecastProps {
 }
 
 export default function ForecastSection({ city }: ForecastProps) {
-  const [openDates, setOpenDates] = useState<string[]>([])
+  const [openDate, setOpenDate] = useState<string | null>(null)
   const { data, isLoading, error } = useForecast(city)
 
   if (isLoading){
@@ -39,9 +39,7 @@ export default function ForecastSection({ city }: ForecastProps) {
 
   // 아코디언 토글
   const toggleDate = (date: string) => {
-    setOpenDates(prev => 
-      prev.includes(date) ? prev.filter(d => d !== date) : [...prev, date]
-    )
+    setOpenDate(prev => (prev === date ? null : date))
   }
 
   return (
@@ -58,14 +56,14 @@ export default function ForecastSection({ city }: ForecastProps) {
             <h3 className="text-xl font-semibold">
               {format(new Date(date), 'yyyy-MM-dd (EEE)', { locale: ko })}
             </h3>
-            <span>{openDates.includes(date) ? 
+            <span>{openDate === date ? 
               <IoIosArrowUp className='w-5 h-5' /> : 
               <IoIosArrowDown className='w-5 h-5'/>}
             </span>
           </div>
 
           {/* 카드 영역 */}
-          {openDates.includes(date) && (
+          {openDate === date && (
             <div className="flex gap-4 overflow-x-auto p-2">
               {forecasts.map(f => {
                 const iconUrl = `https://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`
