@@ -45,7 +45,7 @@ export default function ForecastSection({ city }: ForecastProps) {
   }
 
   return (
-    <div className="mt-8 mb-16 w-[100%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
+    <div className="mt-8 mb-16 w-[80%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
       <h2 className="text-2xl font-semibold mb-4">{city} 5일 예보</h2>
 
       {Object.entries(forecastByDate).map(([date, forecasts]) => (

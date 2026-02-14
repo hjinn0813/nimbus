@@ -27,14 +27,14 @@ export default function Detail() {
   if (error || !weather) return <p>현재 날씨를 불러오지 못했습니다.</p>;
 
   return (
-    <div className='flex flex-col mx-auto w-[90%]'>
+    <div className='flex flex-col items-center mx-auto w-[90%]'>
       <h1 className="text-3xl font-bold mt-10">{city}</h1>
 
       {/* 현재 날씨 */}
       <WeatherCard city={city}/>
 
       {/* 디테일 페이지 전용 현재 날씨 상세 */}
-      <div className="mt-8 p-4 rounded-lg shadow bg-white dark:bg-gray-800">
+      <div className="w-[80%] mt-8 p-4 rounded-lg shadow bg-white dark:bg-gray-800">
         <h2 className="text-xl font-semibold mb-4">현재 날씨 상세 정보</h2>
         <div className="flex flex-col py-2">
           <div className='flex flex-row justify-around my-3'>
