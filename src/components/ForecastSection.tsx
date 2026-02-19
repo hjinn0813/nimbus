@@ -43,8 +43,8 @@ export default function ForecastSection({ city }: ForecastProps) {
   }
 
   return (
-    <div className="mt-8 mb-16 w-[80%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
-      <h2 className="text-2xl font-semibold mb-4">{city} 5일 예보</h2>
+    <div className="mt-8 w-[80%] p-4 rounded-lg shadow bg-white dark:bg-gray-800">
+      <h2 className="text-2xl font-semibold mb-4 xs:text-xl">{city} 5일 예보</h2>
 
       {Object.entries(forecastByDate).map(([date, forecasts]) => (
         <div key={date} className="py-3 border-b border-gray-300 dark:border-gray-600">
@@ -53,7 +53,7 @@ export default function ForecastSection({ city }: ForecastProps) {
             className="flex justify-between items-center cursor-pointer p-2"
             onClick={() => toggleDate(date)}
           >
-            <h3 className="text-xl font-semibold">
+            <h3 className="text-xl font-semibold xs:text-lg">
               {format(new Date(date), 'yyyy-MM-dd (EEE)', { locale: ko })}
             </h3>
             <span>{openDate === date ? 

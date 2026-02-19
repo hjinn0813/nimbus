@@ -38,7 +38,7 @@ export default function useForecast(city: string){
     if (!city) throw new Error('No city provided');
 
     const res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_WEATHER_KEY}&lang=${DEFAULT_LANG}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${import.meta.env.VITE_WEATHER_KEY}&lang=${DEFAULT_LANG}`
     );
     return res.data;
   };
