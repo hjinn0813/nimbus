@@ -6,7 +6,7 @@ import { ImGithub } from "react-icons/im";
 
 export default function Footer() {
   return (
-    <footer id='footer' className='bg-gradient-to-b from-sub_color to-emerald-600 p-4'>
+    <footer id='footer' className='mt-16 bg-gradient-to-b from-sub_color to-emerald-600 p-4'>
       <div id='ft-wrap' className='flex justify-between items-center'>
         <div id='ft-text' className='text-sm'>
           © 2025 Hyejin Cho.

@@ -27,43 +27,50 @@ export default function Detail() {
   if (error || !weather) return <p>현재 날씨를 불러오지 못했습니다.</p>;
 
   return (
-    <div className='flex flex-col items-center mx-auto w-[90%]'>
-      <h1 className="text-3xl font-bold mt-10">{city}</h1>
+    <div className='flex flex-col items-center w-[100%]'>
+      <h1 
+        className="text-3xl font-bold mt-10 cursor-pointer"
+        title="네이버 날씨로 이동"
+        onClick={() => window.open(
+            `https://weather.naver.com/`,
+            "_blank"
+        )}
+      >{city}</h1>
 
       {/* 현재 날씨 */}
       <WeatherCard city={city}/>
 
       {/* 디테일 페이지 전용 현재 날씨 상세 */}
       <div className="w-[80%] mt-8 p-4 rounded-lg shadow bg-white dark:bg-gray-800">
-        <h2 className="text-xl font-semibold mb-4">현재 날씨 상세 정보</h2>
+        <h2 className="text-2xl font-semibold mb-4 xs:text-xl">현재 날씨 상세 정보</h2>
         <div className="flex flex-col py-2">
           <div className='flex flex-row justify-around my-3'>
             <div className='flex flex-col items-center'>
               <div>체감온도</div>
-              <span className='text-4xl my-2'>{Math.round(weather.main.feels_like - 273.15)}°C</span>
+              <span className='text-4xl my-2 xs:text-3xl'>{Math.round(weather.main.feels_like - 273.15)}°C</span>
             </div>
             <div className='flex flex-col items-center'>
               <div>최저 기온</div>
-              <span className='text-4xl my-2'>{Math.round(weather.main.temp_min - 273.15)}°C</span>
+              <span className='text-4xl my-2 xs:text-3xl'>{Math.round(weather.main.temp_min - 273.15)}°C</span>
             </div>
             <div className='flex flex-col items-center'>
               <div>최고 기온</div>
-              <span className='text-4xl my-2'>{Math.round(weather.main.temp_max - 273.15)}°C</span>
+              <span className='text-4xl my-2 xs:text-3xl'>{Math.round(weather.main.temp_max - 273.15)}°C</span>
             </div>
           </div>
 
           <div className='flex flex-row justify-around my-3'>
             <div className='flex flex-col items-center'>
               <div>습도</div>
-              <span className='text-4xl my-2'>{weather.main.humidity}%</span>
+              <span className='text-4xl my-2 xs:text-3xl'>{weather.main.humidity}%</span>
             </div>
             <div className='flex flex-col items-center'>
               <div>강수량</div>
-              <span className='text-4xl my-2'>{weather.rain?.['1h'] ?? 0} mm</span>
+              <span className='text-4xl my-2 xs:text-3xl'>{weather.rain?.['1h'] ?? 0} mm</span>
             </div>
             <div className='flex flex-col items-center'>
               <div>적설량</div>
-              <span className='text-4xl my-2'>{weather.snow?.['1h'] ?? 0} mm</span>
+              <span className='text-4xl my-2 xs:text-3xl'>{weather.snow?.['1h'] ?? 0} mm</span>
             </div>
           </div>
         </div>

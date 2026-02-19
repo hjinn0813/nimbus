@@ -38,9 +38,9 @@ export default function WeatherCard({ city, coords, onClick }: WeatherCardProps)
       <div className='flex flex-row items-end justify-between'>
         <div className='my-6'>
           <div className='text-2xl'>{weather.weather[0].description}</div>
-          <div className='text-6xl mt-2'>{Math.round(weather.main.temp - 273.15)}°C</div>
+          <div className='text-6xl mt-2 xs:text-5xl'>{Math.round(weather.main.temp - 273.15)}°C</div>
         </div>
-        <img className='w-[150px] h-[150px]' src={iconUrl} alt={weather.weather[0].description} />
+        <img className='w-[120px] h-[120px]' src={iconUrl} alt={weather.weather[0].description} />
       </div>
     </div>
   )

@@ -15,7 +15,10 @@ module.exports = {
         error: '#f43f5e',           // rose-400
         text_primary: '#1e293b',    // slate-800
         text_secondary: '#6b7280'   // slate-500
-      }      
+      },
+      screens: {
+        xs: {'max': '480px'},
+      }
     },
   },
   plugins: [],
