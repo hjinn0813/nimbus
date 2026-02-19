@@ -66,9 +66,8 @@
  ┃ ┃ ┣ 📜favicon-16x16.png
  ┃ ┃ ┣ 📜favicon-32x32.png
  ┃ ┃ ┗ 📜favicon.ico
- ┃ ┣ 📂fonts
+ ┃ ┗ 📂fonts
  ┃ ┃ ┗ 📜PretendardStdVariable.woff2
- ┃ ┗ 📜index.html
  ┣ 📂src
  ┃ ┣ 📂assets
  ┃ ┃ ┗ 📜crying-face.png
@@ -95,14 +94,16 @@
  ┃ ┃ ┗ 📜formatDate.ts
  ┃ ┣ 📜App.tsx
  ┃ ┣ 📜images.d.ts
- ┃ ┣ 📜index.tsx
+ ┃ ┣ 📜main.tsx
  ┃ ┗ 📜queryClient.tsx
  ┣ 📜.env
  ┣ 📜.gitignore
  ┣ 📜README.md
+ ┣ 📜index.html
  ┣ 📜package-lock.json
  ┣ 📜package.json
  ┣ 📜postcss.config.js
  ┣ 📜tailwind.config.js
- ┗ 📜tsconfig.json
+ ┣ 📜tsconfig.json
+ ┗ 📜vite.config.ts
 ```
