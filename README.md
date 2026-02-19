@@ -19,10 +19,10 @@
   - 검색 결과(도시명)에 따른 상세 페이지 동적 라우팅 및 404 페이지 예외 처리
 
 ### 2차 개선 (Migration & Enhancement)
-- **기간**: 2026.02 ~ 진행 중
+- **기간**: 2026.02
 - **내용**
   - CRA → Vite 마이그레이션으로 빌드 속도 및 구조 최적화
-  - Github Actions 기반 CI 환경 구성 (코드 품질 검사, TypeScript type check & ESLint 실행)
+  - Github Actions 기반 CI 환경 구성 (TypeScript type check & ESLint 자동 실행)
   - 전체 프로젝트 구조 안정화 및 디렉토리 정리
 
 <br>
@@ -99,11 +99,12 @@
  ┣ 📜.env
  ┣ 📜.gitignore
  ┣ 📜README.md
+ ┣ 📜eslint.config.js
  ┣ 📜index.html
  ┣ 📜package-lock.json
  ┣ 📜package.json
- ┣ 📜postcss.config.js
- ┣ 📜tailwind.config.js
+ ┣ 📜postcss.config.cjs
+ ┣ 📜tailwind.config.cjs
  ┣ 📜tsconfig.json
  ┗ 📜vite.config.ts
 ```
