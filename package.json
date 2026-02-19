@@ -2,6 +2,7 @@
   "name": "nimbus",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@tanstack/react-query": "^5.90.21",
     "@testing-library/dom": "^10.4.1",
